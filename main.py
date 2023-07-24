@@ -12,26 +12,31 @@ root.title("JuTjube Downloader 1.0 (byR.Ch)")
 
 def Clear():
     link_entry.delete(0, END)
+    status_label.configure(text="")
 
 
 def Download():
 
     x = link_entry.get()
     a = pytube.YouTube(x)
+    r = requests.get(x)
+    r2 = r.status_code
 
+    try:
+        if status.get() == 1 and r2 == 200:
+            print(1)
+            status_label.configure(text="LINK LOOKS FINE!")
+        elif status.get() == 2 and r2 == 200:
+            print(2)
+            status_label.configure(text="LINK LOOKS FINE!")
+    #   else:
+    #       pass
 
-try:
-    if status.get() == 1:
-        print(1)
-    elif status.get() == 2:
-        print(2)
- #   else:
- #       pass
-
-    print("titile: ", a.views)
-except:
-    pass
+        print("titile: ", a.views)
+    except:
+        pass
 # =========================================================================================================================================
+
 
 upper_frame = Frame(root, width=580, height=200, highlightbackground="#000000",
                     highlightthickness=1, background="#D4D3D2")
@@ -48,15 +53,18 @@ label1 = Label(upper_frame, width=20,
                text="Paste link above", background="#D4D3D2")
 label1.place(x=220, y=70)
 
+status_label = Label(upper_frame, width=20,
+                     text="", background="#D4D3D2", foreground="#3210c9")
+status_label.place(x=220, y=100)
 status = IntVar()
 
 radio_high_res = Radiobutton(upper_frame, text="Download High Resolution Video",
                              background="#D4D3D2", variable=status, value=1)
-radio_high_res.place(x=45, y=110)
+radio_high_res.place(x=45, y=140)
 
 radio_mp3 = Radiobutton(upper_frame, text="Download Mp3 Music File",
                         background="#D4D3D2", variable=status, value=2)
-radio_mp3.place(x=360, y=110)
+radio_mp3.place(x=360, y=140)
 
 
 button_clear = Button(lower_frame, width=20, height=3,
