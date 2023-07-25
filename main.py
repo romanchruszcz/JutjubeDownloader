@@ -23,16 +23,16 @@ def Download():
     r2 = r.status_code
 
     try:
-        if status.get() == 1 and r2 == 200:
+        if status.get() == 1 and r2 == 200 and x[0:20] == "https://www.youtube.":
             print(1)
             status_label.configure(text="LINK LOOKS FINE!")
-        elif status.get() == 2 and r2 == 200:
+        elif status.get() == 2 and r2 == 200 and x[0:20] == "https://www.youtube.":
             print(2)
             status_label.configure(text="LINK LOOKS FINE!")
     #   else:
     #       pass
 
-        print("titile: ", a.views)
+        print("title: ", a.title)
     except:
         pass
 # =========================================================================================================================================
@@ -53,8 +53,8 @@ label1 = Label(upper_frame, width=20,
                text="Paste link above", background="#D4D3D2")
 label1.place(x=220, y=70)
 
-status_label = Label(upper_frame, width=20,
-                     text="", background="#D4D3D2", foreground="#3210c9")
+status_label = Label(upper_frame, width=20, text="",
+                     background="#D4D3D2", foreground="#3210c9")
 status_label.place(x=220, y=100)
 status = IntVar()
 
