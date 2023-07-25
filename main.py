@@ -6,7 +6,7 @@ import requests
 root = Tk()
 root.geometry("600x310")
 root.config(background="#D4D3D2")
-root.title("JuTjube Downloader 1.0 (byR.Ch)")
+root.title("Jutjube Downloader 1.0 (byR.Ch)")
 # =========================================================================================================================================
 
 
