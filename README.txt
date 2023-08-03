@@ -3,9 +3,9 @@
 
 # Installation : 
 To run this program will be needed three libraries:
--pytube		  # pip install pytube
--requests   # pip install requests
--moviepy  	# pip install moviepy
+-pytube       # pip install pytube
+-requests     # pip install requests
+-moviepy      # pip install moviepy
 
 pull this repository:
 https://github.com/romanchruszcz/JutjubeDownloader
