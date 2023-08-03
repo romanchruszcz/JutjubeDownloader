@@ -7,8 +7,7 @@ To run this program will be needed three libraries:
 -requests   # pip install requests
 -moviepy  	# pip install moviepy
 
-pull this repository or download exe file from  
-(to run exe file, logo.png must be also in same directory)
+pull this repository:
 https://github.com/romanchruszcz/JutjubeDownloader
 
 # Usage
