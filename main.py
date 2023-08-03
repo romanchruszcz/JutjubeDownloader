@@ -151,5 +151,5 @@ canvas.create_image(0, 0, anchor=NW, image=picture)
 link_entry.focus()
 # when this program is opened it runs below function (on the beginning of the file) - checking if folder "Downloads" exists in the same file directory as this program
 folder_creation()
-# keeps this program opened - otherwise it would instantly close after openening
+# keeps this program opened - otherwise it would instantly close after openening this program
 root.mainloop()
