@@ -45,6 +45,8 @@ def Download():
         a = pytube.YouTube(x)
         r = requests.get(x)
         r2 = r.status_code
+
+
 # giving and error msg if something is wrong
     except:
         messagebox.showinfo(
@@ -54,9 +56,10 @@ def Download():
 # checking  which option user chose (1 - high video  or 2 - mp3 file) abd checking if connection status code = 200 (available) and
 # checking  if link provided is to youtube service - if its fine then giving labels update
     if status.get() == 1 or status.get() == 2 and r2 == 200 and x[0:20] == "https://www.youtube.":
-        print(status.get())
+        # print(status.get())
         status_label.configure(text="LINK LOOKS FINE!")
         title_label.configure(text="Title: " + a.title[0:60])
+
 # once again checking which option is chosen by user (high reso. video mp4  for 1 ) then downloads the file
         try:
             if status.get() == 1:
@@ -66,15 +69,26 @@ def Download():
 # once again checking which option is chosen by user (mp3  for 2) then downloads the file
 
             elif status.get() == 2:
-                youtube_file = a.streams.get_highest_resolution()
-                youtube_file.download(os.getcwd() + "\Downloads")
-                location = os.getcwd() + "\Downloads\\" + a.title + ".mp4"
+                ascii = a.title.isascii()
+                if ascii == False:
+                    youtube_file = a.streams.get_highest_resolution()
+                    youtube_file.download(
+                        os.getcwd() + "\Downloads", filename="Your file - please rename.mp4")
+                    location = os.getcwd() + "\Downloads\\" + "Your file - please rename" + ".mp4"
 # converting file from native mp4 to mp3 extension
-                mp3_file = VideoFileClip(location)
-                mp3_file.audio.write_audiofile(location[:-4] + ".mp3")
-                mp3_file.close()
-                os.remove(location)
-                status_label.configure(text="FILE DOWNLOADED!")
+                    mp3_file = VideoFileClip(location)
+                    mp3_file.audio.write_audiofile(location[:-4] + ".mp3")
+                    mp3_file.close()
+                    os.remove(location)
+                    status_label.configure(text="FILE DOWNLOADED!")
+                else:
+                    location = os.getcwd() + "\Downloads\\" + a.title + ".mp4"
+# converting file from native mp4 to mp3 extension
+                    mp3_file = VideoFileClip(location)
+                    mp3_file.audio.write_audiofile(location[:-4] + ".mp3")
+                    mp3_file.close()
+                    os.remove(location)
+                    status_label.configure(text="FILE DOWNLOADED!")
 
 # error handling if something is wrong
         except:
