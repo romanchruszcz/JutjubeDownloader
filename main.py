@@ -1,5 +1,4 @@
 
-<<<<<<< HEAD
 # all libraries used
 import os                       # standard library
 from tkinter import *           # standard library
@@ -88,75 +87,24 @@ def Download():
 # ===================================================     VISUAL PART - GUI     =============================================================
 
 # upper frame creating for the  entry box also for radio buttons and labels
-=======
-from tkinter import *
-import pytube
-import requests
-# =========================================================================================================================================
-root = Tk()
-root.geometry("600x310")
-root.config(background="#D4D3D2")
-root.title("Jutjube Downloader 1.0 (byR.Ch)")
-# =========================================================================================================================================
-
-
-def Clear():
-    link_entry.delete(0, END)
-    status_label.configure(text="")
-
-
-def Download():
-
-    x = link_entry.get()
-    a = pytube.YouTube(x)
-    r = requests.get(x)
-    r2 = r.status_code
-
-    try:
-        if status.get() == 1 and r2 == 200 and x[0:20] == "https://www.youtube.":
-            print(1)
-            status_label.configure(text="LINK LOOKS FINE!")
-        elif status.get() == 2 and r2 == 200 and x[0:20] == "https://www.youtube.":
-            print(2)
-            status_label.configure(text="LINK LOOKS FINE!")
-    #   else:
-    #       pass
-
-        print("title: ", a.title)
-    except:
-        pass
-# =========================================================================================================================================
-
-
->>>>>>> 23d932331f93abae2ba334739f6f3859c407e472
 upper_frame = Frame(root, width=580, height=200, highlightbackground="#000000",
                     highlightthickness=1, background="#D4D3D2")
 upper_frame.place(x=10, y=10)
 
-<<<<<<< HEAD
 # lower frame creating fot the buttons  clear and download
-=======
->>>>>>> 23d932331f93abae2ba334739f6f3859c407e472
 lower_frame = Frame(root, width=340, height=80, highlightbackground="#000000",
                     highlightthickness=1, background="#D4D3D2")
 lower_frame.place(x=250, y=220)
 
-<<<<<<< HEAD
 # entry box for link
 link_entry = Entry(upper_frame, width=80)
 link_entry.place(x=45, y=50)
 
 # label under entry box
-=======
-link_entry = Entry(upper_frame, width=80)
-link_entry.place(x=45, y=50)
-
->>>>>>> 23d932331f93abae2ba334739f6f3859c407e472
 label1 = Label(upper_frame, width=20,
                text="Paste link above", background="#D4D3D2")
 label1.place(x=220, y=70)
 
-<<<<<<< HEAD
 # label with status - giving output if everything is fine or there is error
 status_label = Label(upper_frame, width=20, text="",
                      background="#D4D3D2", foreground="#3210c9")
@@ -171,48 +119,26 @@ title_label.place(x=120, y=100)
 status = IntVar()
 
 # radiobutton for choice nr 1  - high reso. mp4 file
-=======
-status_label = Label(upper_frame, width=20, text="",
-                     background="#D4D3D2", foreground="#3210c9")
-status_label.place(x=220, y=100)
-status = IntVar()
-
->>>>>>> 23d932331f93abae2ba334739f6f3859c407e472
 radio_high_res = Radiobutton(upper_frame, text="Download High Resolution Video",
                              background="#D4D3D2", variable=status, value=1)
 radio_high_res.place(x=45, y=140)
 
-<<<<<<< HEAD
 # radiobutton for choice nr 1  - audio only mp4 file
 radio_mp3 = Radiobutton(upper_frame, text="Download Mp4 Audio Only File",
                         background="#D4D3D2", variable=status, value=2)
 radio_mp3.place(x=360, y=140)
 
 # button in lower frame thats running function to clear labels texts and entrybox for link
-=======
-radio_mp3 = Radiobutton(upper_frame, text="Download Mp3 Music File",
-                        background="#D4D3D2", variable=status, value=2)
-radio_mp3.place(x=360, y=140)
-
-
->>>>>>> 23d932331f93abae2ba334739f6f3859c407e472
 button_clear = Button(lower_frame, width=20, height=3,
                       text="Clear", command=Clear)
 button_clear.place(x=10, y=10)
 
-<<<<<<< HEAD
 # button in lower frame thats running downloading function
-=======
->>>>>>> 23d932331f93abae2ba334739f6f3859c407e472
 button_download = Button(lower_frame, width=20, height=3,
                          text="Download", command=Download)
 button_download.place(x=180, y=10)
 
-<<<<<<< HEAD
 # canvas box with my logo
-=======
-
->>>>>>> 23d932331f93abae2ba334739f6f3859c407e472
 canvas = Canvas(root, width=200, height=80, background="#D4D3D2",
                 borderwidth=0, highlightthickness=0)
 canvas.place(x=20, y=220)
@@ -220,15 +146,10 @@ picture = PhotoImage(file="logo.png")
 canvas.create_image(0, 0, anchor=NW, image=picture)
 
 
-<<<<<<< HEAD
 # ===================================================            END            =============================================================
 # sets focus on link entry box
 link_entry.focus()
 # when this program is opened it runs below function (on the beginning of the file) - checking if folder "Downloads" exists in the same file directory as this program
 folder_creation()
 # keeps this program opened - otherwise it would instantly close after openening
-=======
-# ==========================================================================================================================================
-link_entry.focus()
->>>>>>> 23d932331f93abae2ba334739f6f3859c407e472
 root.mainloop()
