@@ -49,7 +49,7 @@ def Download():
     except:
         messagebox.showinfo(
             "Error", "Error occured. \nProbably reasons are: \n-no internet \n-wrong link \n-empty link box\nCheck all above and try again.")
-        status_label.configure(text="ERROR", foreground="red")
+        status_label.configure(text="ERROR", foreground="#ff0000")
 
 # checking  which option user chose (1 - high video  or 2 - mp3 file) abd checking if connection status code = 200 (available) and
 # checking  if link provided is to youtube service - if its fine then giving labels update
@@ -79,9 +79,10 @@ def Download():
 # error handling if something is wrong
         except:
             messagebox.showinfo("showinfo", "ERROR")
+            status_label.configure(text="ERROR", foreground="#ff0000")
 # error handling if something is wrong
     else:
-        status_label.configure(text="ERROR", foreground="red")
+        status_label.configure(text="ERROR", foreground="#ff0000")
 
 
 # ===================================================     VISUAL PART - GUI     =============================================================
@@ -119,12 +120,12 @@ title_label.place(x=120, y=100)
 status = IntVar()
 
 # radiobutton for choice nr 1  - high reso. mp4 file
-radio_high_res = Radiobutton(upper_frame, text="Download High Resolution Video",
+radio_high_res = Radiobutton(upper_frame, text="Download High Resolution MP4 Video File",
                              background="#D4D3D2", variable=status, value=1)
 radio_high_res.place(x=45, y=140)
 
 # radiobutton for choice nr 1  - audio only mp4 file
-radio_mp3 = Radiobutton(upper_frame, text="Download Mp4 Audio Only File",
+radio_mp3 = Radiobutton(upper_frame, text="Download Mp3 Audio File",
                         background="#D4D3D2", variable=status, value=2)
 radio_mp3.place(x=360, y=140)
 
